@@ -93,8 +93,15 @@ resource "aws_secretsmanager_secret_policy" "this" {
 # Version
 ################################################################################
 
+# Local to determine if we have a secret value to store
+# When both secret_string and secret_binary are null, skip creating the version
+# This allows creating a "secret shell" for manually-managed secrets
+locals {
+  has_secret_value = var.secret_string != null || var.secret_binary != null
+}
+
 resource "aws_secretsmanager_secret_version" "this" {
-  count = var.create && !(var.enable_rotation || var.ignore_secret_changes) ? 1 : 0
+  count = var.create && !(var.enable_rotation || var.ignore_secret_changes) && local.has_secret_value ? 1 : 0
 
   region = var.region
 
@@ -107,7 +114,7 @@ resource "aws_secretsmanager_secret_version" "this" {
 }
 
 resource "aws_secretsmanager_secret_version" "ignore_changes" {
-  count = var.create && (var.enable_rotation || var.ignore_secret_changes) ? 1 : 0
+  count = var.create && (var.enable_rotation || var.ignore_secret_changes) && local.has_secret_value ? 1 : 0
 
   region = var.region
 

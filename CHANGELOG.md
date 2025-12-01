@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.2] - 2025-12-01
+
+### Fixed
+
+- Skip creating `aws_secretsmanager_secret_version` when both `secret_string` and `secret_binary` are null. This allows creating a "secret shell" for manually-managed secrets where the actual secret value is populated externally (e.g., via AWS Console or CLI). Previously, passing null would cause AWS API error: `InvalidRequestException: You must provide either SecretString or SecretBinary`.
+
 ## [2.0.1](https://github.com/terraform-aws-modules/terraform-aws-secrets-manager/compare/v2.0.0...v2.0.1) (2025-10-21)
 
 ### Bug Fixes
