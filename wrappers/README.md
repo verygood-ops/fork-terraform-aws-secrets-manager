@@ -12,9 +12,9 @@ This wrapper does not implement any extra functionality.
 
 ```hcl
 terraform {
-  source = "tfr:///terraform-aws-modules/secrets-manager/aws//wrappers"
+  source = "tfr:///terraform-aws-modules/fork-terraform-aws-secrets-manager/aws//wrappers"
   # Alternative source:
-  # source = "git::git@github.com:terraform-aws-modules/terraform-aws-secrets-manager.git//wrappers?ref=master"
+  # source = "git::git@github.com:terraform-aws-modules/terraform-aws-fork-terraform-aws-secrets-manager.git//wrappers?ref=master"
 }
 
 inputs = {
@@ -42,7 +42,7 @@ inputs = {
 
 ```hcl
 module "wrapper" {
-  source = "terraform-aws-modules/secrets-manager/aws//wrappers"
+  source = "terraform-aws-modules/fork-terraform-aws-secrets-manager/aws//wrappers"
 
   defaults = { # Default values
     create = true
