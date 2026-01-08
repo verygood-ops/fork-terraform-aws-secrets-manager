@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.0](https://github.com/terraform-aws-modules/terraform-aws-secrets-manager/compare/v2.0.1...v2.1.0) (2026-01-08)
+
+### Features
+
+* Add provider meta user-agent ([#21](https://github.com/terraform-aws-modules/terraform-aws-secrets-manager/issues/21)) ([6de6af6](https://github.com/terraform-aws-modules/terraform-aws-secrets-manager/commit/6de6af67519ae0a4aa0c6ab02714e66e4ca4a965))
+
 ## [2.0.1](https://github.com/terraform-aws-modules/terraform-aws-secrets-manager/compare/v2.0.0...v2.0.1) (2025-10-21)
 
 ### Bug Fixes
